@@ -19,6 +19,7 @@ function activate(context) {
 	const createFolder = (name, key) => new Promise(
 	(resolve, reject) => {
 		try{
+			
 			shell.mkdir('-p', name);
 			key.file_dependency.map(x => {
 				fs.writeFile(path.resolve(name, `${x.file}.scss`), x.comment, function (err) {
